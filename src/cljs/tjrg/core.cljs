@@ -32,14 +32,22 @@
     [sa/Container {:id id :text-align "center" :text true}
      [sa/Header {:size "huge"} "The James River Gazette"]
      [:p "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."]
-     [:a {:href "/issues/0_2020_01_07_James_River_Gazette_EXAMPLE.pdf"
-          :download true}
-      [sa/Button {:type "button"
-                  :primary true
-                  :icon true
-                  :label-position "left"}
-       "Download the Latest Issue"
-       [sa/Icon {:class "download"}]]]]))
+     [:div {:class "ui vertical buttons"}
+      [:a {:href "#"}
+       [sa/Button {:type "button"
+                   :primary true
+                   :icon true
+                   :label-position "left"}
+        "Donate to the JRG"
+        [sa/Icon {:class "like"}]]]
+      [:a {:href "/issues/0_2020_01_07_James_River_Gazette_EXAMPLE.pdf"
+           :download true}
+       [sa/Button {:type "button"
+                   :secondary true
+                   :icon true
+                   :label-position "left"}
+        "Download the Latest Issue"
+        [sa/Icon {:class "download"}]]]]]))
 
 
 ; (defn items-page []
