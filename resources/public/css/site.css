@@ -1,32 +1,26 @@
 .body-container {
   font-family: 'Helvetica Neue', Verdana, Helvetica, Arial, sans-serif;
-  max-width: 640px;
+  /* max-width: 640px; */
   margin: 0 auto;
-  padding-top: 72px;
+  padding-top: 30px;
   -webkit-font-smoothing: antialiased;
   font-size: 1.125em;
-  color: #333;
+  /* color: #333; */
   line-height: 1.5em;
+  background-color: #D4D4D4;
 }
 
-h1, h2, h3 {
-  color: #000;
-}
-h1 {
-  font-size: 2.5em
+#navbar a {
+  color: black;
 }
 
-h2 {
-  font-size: 2em
-}
-
-h3 {
-  font-size: 1.5em
+#content {
+  margin-top: 30px;
 }
 
 a {
   text-decoration: none;
-  color: #09f;
+  color: #FFF;
 }
 
 a:hover {

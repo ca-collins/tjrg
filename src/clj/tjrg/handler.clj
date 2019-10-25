@@ -7,15 +7,15 @@
 
 (def mount-target
   [:div#app
-   [:h2 "Welcome to tjrg"]
-   [:p "please wait while Figwheel is waking up ..."]
-   [:p "(Check the js console for hints if nothing exciting happens.)"]])
+   [:h2 "Loading..."]])
 
 (defn head []
   [:head
    [:meta {:charset "utf-8"}]
    [:meta {:name "viewport"
            :content "width=device-width, initial-scale=1"}]
+   [:link {:rel "stylesheet"
+           :href "//cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.0/semantic.min.css"}]
    (include-css (if (env :dev) "/css/site.css" "/css/site.min.css"))])
 
 (defn loading-page []
@@ -40,7 +40,7 @@
       ["" {:get {:handler index-handler}}]
       ["/:item-id" {:get {:handler index-handler
                           :parameters {:path {:item-id int?}}}}]]
-     ["/about" {:get {:handler index-handler}}]])
+     ["/issues" {:get {:handler index-handler}}]])
    (reitit-ring/routes
     (reitit-ring/create-resource-handler {:path "/" :root "/public"})
     (reitit-ring/create-default-handler))
