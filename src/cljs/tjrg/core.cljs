@@ -33,7 +33,7 @@
      [sa/Header {:size "huge"} "The James River Gazette"]
      [:p "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."]
      [:div {:class "ui vertical buttons"}
-      [:a {:href "#"}
+      [:a {:href "https://www.paypal.me/jrgazette" :target "_blank"}
        [sa/Button {:type "button"
                    :primary true
                    :icon true
