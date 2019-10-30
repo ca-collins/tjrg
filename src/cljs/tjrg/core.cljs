@@ -70,7 +70,7 @@
 
 
 (defn issues-page []
-  (fn [] [:span.main
+  (fn [] [sa/Container {:text-align "center" :text true}
           [:h1 "Past Issues"]]))
 
 
