@@ -7,7 +7,7 @@
 
 (def mount-target
   [:div#app
-   [:h2 "Loading..."]])
+   [:h2 {:id "loading-header"} "Loading..."]])
 
 (defn head []
   [:head
