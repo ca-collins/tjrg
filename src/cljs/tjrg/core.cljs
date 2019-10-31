@@ -48,34 +48,49 @@
        [sa/Button {:type "button"
                    :size "large"
                    :primary true}
-                  "Subscribe"]]]
+                  "Subscribe"]]
+      [:br]
+      [sa/Button {:href "/issues/0_2020_01_07_James_River_Gazette_EXAMPLE.pdf"
+                  :download true
+                  :type "button"
+                  :secondary true
+                  :icon true
+                  :label-position "left"}
+                 "Download the Latest Issue"
+                 [sa/Icon {:class "download"}]]]
+
      ;; CONTRIBUTE ==============================
      [sa/Container {:id id :text-align "center" :text true}
+      [:br]
       [sa/Header {:size "large"} "Contribute"]
       [:p "Odio duis pharetra hendrerit ullamcorper. Consequat urna per odio cum etiam luctus nisl etiam? Dapibus fusce tempus eget fusce consectetur rutrum gravida sapien posuere. "]
       [sa/Container
        [sa/Button {:type "button"
                    :size "medium"
                    :basic true
-                   :href (path-for :about)}
-                  "Learn how"]]]
-
-     [:div {:class "ui vertical buttons"}
-      [:a {:href "https://www.paypal.me/jrgazette" :target "_blank"}
+                   :href (path-for :contribute)}
+                  "Learn how"]
        [sa/Button {:type "button"
                    :primary true
-                   :icon true
-                   :label-position "left"}
-        "Donate to the JRG"
-        [sa/Icon {:class "like"}]]]
-      [:a {:href "/issues/0_2020_01_07_James_River_Gazette_EXAMPLE.pdf"
-           :download true}
+                   :href "https://www.paypal.me/jrgazette"
+                   :target "_blank"}
+                  "Donate"]]]
+
+     ;; ADVERTISE ==============================
+     [sa/Container {:id id :text-align "center" :text true}
+      [:br]
+      [sa/Header {:size "large"} "Advertise"]
+      [:p "Odio duis pharetra hendrerit ullamcorper. Consequat urna per odio cum etiam luctus nisl etiam? Dapibus fusce tempus eget fusce consectetur rutrum gravida sapien posuere. "]
+      [sa/Container
        [sa/Button {:type "button"
-                   :secondary true
-                   :icon true
-                   :label-position "left"}
-        "Download the Latest Issue"
-        [sa/Icon {:class "download"}]]]]]))
+                   :size "medium"
+                   :basic true
+                   :href (path-for :advertise)}
+                  "Learn more"]
+       [sa/Button {:type "button"
+                   :primary true
+                   :href (path-for :advertise)}
+                  "Contact us"]]]]))
 
 
 ; (defn items-page []
