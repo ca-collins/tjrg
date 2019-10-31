@@ -31,7 +31,3 @@ a {
 a:hover {
   text-decoration: underline;
 }
-
-.vertical.ui.buttons > a {
-  margin-top: 10px;
-}
