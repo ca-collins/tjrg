@@ -5,8 +5,8 @@
    [reitit.frontend :as reitit]
    [clerk.core :as clerk]
    [accountant.core :as accountant]
-   [soda-ash.core :as sa]))
-
+   [soda-ash.core :as sa]
+   [goog.string :as g]))
 ;; -------------------------
 ;; Routes
 
@@ -30,7 +30,12 @@
   (fn [{:keys [id]}]
     [sa/Container {:id id :text-align "center" :text true}
      [sa/Header {:size "huge"} "The James River Gazette"]
-     [:p "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."]
+     [:p (str "A community-driven newspaper dedicated to connecting the people of the "
+              "Middle" (g/unescapeEntities "&nbsp;")
+              "James"  (g/unescapeEntities "&nbsp;")
+              "River"  (g/unescapeEntities "&nbsp;")
+              "Basin"  (g/unescapeEntities "&nbsp;")
+              "around the common goal of protecting our local waterways.")]
      [:div {:class "ui vertical buttons"}
       [:a {:href "https://www.paypal.me/jrgazette" :target "_blank"}
        [sa/Button {:type "button"
