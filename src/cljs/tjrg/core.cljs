@@ -1,6 +1,6 @@
 (ns tjrg.core
   (:require
-   [reagent.core :as reagent :refer [atom]]
+   [reagent.core :as r]
    [reagent.session :as session]
    [reitit.frontend :as reitit]
    [clerk.core :as clerk]
@@ -13,17 +13,16 @@
 (def router
   (reitit/router
    [["/" :index]
-    ["/items"
-     ["" :items]
-     ["/:item-id" :item]]
-    ["/issues" :issues]]))
+    ; ["/items"
+    ;  ["" :items]
+    ;  ["/:item-id" :item]]
+    ["/about" :about]]))
 
 (defn path-for [route & [params]]
   (if params
     (:path (reitit/match-by-name router route params))
     (:path (reitit/match-by-name router route))))
 
-(path-for :issues)
 ;; -------------------------
 ;; Page components
 
@@ -69,9 +68,9 @@
 ;        [:p [:a {:href (path-for :items)} "Back to the list of items"]]])))
 
 
-(defn issues-page []
+(defn about-page []
   (fn [] [sa/Container {:text-align "center" :text true}
-          [:h1 "Past Issues"]]))
+          [:h1 "About the Gazette"]]))
 
 
 ;; -------------------------
@@ -80,27 +79,50 @@
 (defn page-for [route]
   (case route
     :index #'home-page
-    :issues #'issues-page))
+    :about #'about-page))
     ;:items #'items-page
     ;:item #'item-page))
 
 
 ;; -------------------------
 ;; Page mounting component
+(defn navbar []
+  (let [active-item (r/atom nil)
+        handle-click (fn [event props]
+                       (let [name (-> props
+                                      (js->clj :keywordize-keys true)
+                                      (:name))]
+                         (reset! active-item name)))]
+    (fn []
+      [sa/Menu
+         [sa/MenuItem {:header true
+                       :href (path-for :index)
+                       :on-click handle-click}
+           "The James River Gazette"]
+         [sa/MenuItem {:name "about"
+                       :href (path-for :about)
+                       :active (= @active-item "about")
+                       :on-click handle-click}]
+         [sa/MenuItem {:name "contribute"
+                       :href (path-for :issues)
+                       :active (= @active-item "contribute")
+                       :on-click handle-click}]
+         [sa/MenuItem {:name "advertise"
+                       :href (path-for :issues)
+                       :active (= @active-item "advertise")
+                       :on-click handle-click}]])))
 
 (defn current-page []
   (fn []
     (let [page (:current-page (session/get :route))]
-      [sa/Container {:text-align "left"}
-       [sa/Container {:id "navbar"}
-        [:p [:a {:href (path-for :index)} "Home"] " | "
-         [:a {:href (path-for :issues)} "Past Issues"]]]
+      [:<>
+       [navbar]
        [page {:id "content"}]])))
 ;; -------------------------
 ;; Initialize app
 
 (defn mount-root []
-  (reagent/render [current-page] (.getElementById js/document "app")))
+  (r/render [current-page] (.getElementById js/document "app")))
 
 (defn init! []
   (clerk/initialize!)
@@ -110,7 +132,7 @@
       (let [match (reitit/match-by-path router path)
             current-page (:name (:data  match))
             route-params (:path-params match)]
-        (reagent/after-render clerk/after-render!)
+        (r/after-render clerk/after-render!)
         (session/put! :route {:current-page (page-for current-page)
                               :route-params route-params})
         (clerk/navigate-page! path)))
