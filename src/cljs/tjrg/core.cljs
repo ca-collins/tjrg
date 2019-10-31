@@ -163,10 +163,6 @@
 
        children]])))
 
-(defn navbar [children]
-  (fn [children]
-   [:<>]))
-
 (defn current-page []
   (fn []
     (let [page (:current-page (session/get :route))]
