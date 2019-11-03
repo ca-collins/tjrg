@@ -62,27 +62,24 @@
       ;            "Download the Latest Issue"
       ;            [sa/Icon {:class "download"}]]]
 
-     ;; CONTRIBUTE ==============================
+
+     ;; GET INVOLVED ==============================
      [sa/Container {:id id :text-align "center" :text true}
       [:br]
-      [sa/Header {:size "large"} "Contribute"]
-      [:p "Odio duis pharetra hendrerit ullamcorper. Consequat urna per odio cum etiam luctus nisl etiam? Dapibus fusce tempus eget fusce consectetur rutrum gravida sapien posuere. "]
+      [sa/Header {:size "large"} "Get Involved"]
+      [:p "Write an article, submit a joke or comic, give us feedback"]
       [sa/Container
        [sa/Button {:type "button"
                    :size "medium"
                    :basic true
                    :href (path-for :contribute)}
-                  "Learn how"]
-       [sa/Button {:type "button"
-                   :primary true
-                   :href "https://www.paypal.me/jrgazette"
-                   :target "_blank"}
-                  "Donate"]]]
+                  "Learn how"]]]
+
 
      ;; ADVERTISE ==============================
      [sa/Container {:id id :text-align "center" :text true}
       [:br]
-      [sa/Header {:size "large"} "Advertise"]
+      [sa/Header {:size "large"} "Advertise with Us"]
       [:p "Odio duis pharetra hendrerit ullamcorper. Consequat urna per odio cum etiam luctus nisl etiam? Dapibus fusce tempus eget fusce consectetur rutrum gravida sapien posuere. "]
       [sa/Container
        [sa/Button {:type "button"
@@ -93,8 +90,21 @@
        [sa/Button {:type "button"
                    :primary true
                    :href (path-for :advertise)}
-                  "Contact us"]]]]))
+                  "Contact us"]]]
 
+     ;; Donate ==============================
+     [sa/Container {:id id :text-align "center" :text true}
+      [:br]
+      [sa/Header {:size "large"} "Support the JRG"]
+      [:p "Please consider supporting the JRG with a small donation.
+           Proceeds help us cover our printing and website costs
+           and any surplus is donated to the "
+           [:a {:href "#"} "Jame River Foundation."]]
+      [sa/Button {:type "button"
+                  :primary true
+                  :href "https://www.paypal.me/jrgazette"
+                  :target "_blank"}
+                 "Donate"]]]))
 
 ; (defn items-page []
 ;   (fn []
@@ -149,8 +159,7 @@
 (defn nav-menu [children]
   (let [active-item (r/atom nil)
         visible (r/atom false)
-        handle-menu-hide (fn [] (js/console.log "HIDE MENU")
-                                (reset! visible false))
+        handle-menu-hide (fn [] (reset! visible false))
         handle-link-click (fn [event props]
                             (let [name (-> props
                                            (js->clj :keywordize-keys true)
