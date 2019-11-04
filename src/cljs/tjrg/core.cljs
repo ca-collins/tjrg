@@ -9,7 +9,8 @@
    [goog.string :as g]
    [tjrg.home.core :refer [homepage]]
    [tjrg.about :refer [about-page]]
-   [tjrg.contribute :refer [contribute-page]]))
+   [tjrg.contribute :refer [contribute-page]]
+   [tjrg.advertise1 :refer [advertise-page]]))
 ;; -------------------------
 ;; Routes
 
@@ -25,16 +26,6 @@
   (if params
     (:path (reitit/match-by-name router route params))
     (:path (reitit/match-by-name router route))))
-
-(defn advertise-page []
-  (fn [] [sa/Container {:text-align "center" :text true}
-          [:h1 "Advertise with the Gazette"]
-          [:p "[to include info anticipated distribution range and online availability and instructions to contact through email]"]
-          [:p "[Could eventually have actual numbers of distribution locations & number of subscribers as well as a contact form option]"]]))
-
-
-;; -------------------------
-;; Translate routes -> page components
 
 (defn page-for [route]
   (case route
