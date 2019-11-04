@@ -2,8 +2,7 @@
   (:require
    [reagent.core :as r]
    [soda-ash.core :as sa]
-   [goog.string :as g]
-   [tjrg.core :refer [path-for]]))
+   [goog.string :as g]))
 
 (defn hero []
  (fn []
@@ -20,7 +19,7 @@
                  :size "medium"
                  :basic true
                  :color "large"
-                 :href (path-for :about)}
+                 :href "/about"}
                 "Learn more"]
      [sa/Button {:type "button"
                  :size "large"

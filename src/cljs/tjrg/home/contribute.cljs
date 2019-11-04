@@ -1,8 +1,7 @@
 (ns tjrg.home.contribute
   (:require
    [reagent.core :as r]
-   [soda-ash.core :as sa]
-   [tjrg.core :refer [path-for]]))
+   [soda-ash.core :as sa]))
 
 (defn contribute []
  (fn []
@@ -14,5 +13,5 @@
      [sa/Button {:type "button"
                  :size "medium"
                  :basic true
-                 :href (path-for :contribute)}
-                "Learn how"]]]))
+                 :href "/contribute"}
+                "Learn how/"]]]))
