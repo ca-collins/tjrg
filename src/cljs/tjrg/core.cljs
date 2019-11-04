@@ -7,7 +7,8 @@
    [accountant.core :as accountant]
    [soda-ash.core :as sa]
    [goog.string :as g]
-   [tjrg.home.core :refer [homepage]]))
+   [tjrg.home.core :refer [homepage]]
+   [tjrg.about :refer [about-page]]))
 ;; -------------------------
 ;; Routes
 
@@ -23,12 +24,6 @@
   (if params
     (:path (reitit/match-by-name router route params))
     (:path (reitit/match-by-name router route))))
-
-;(defn homepage [] [:h1 "hi"])
-(defn about-page []
-  (fn [] [sa/Container {:text-align "center" :text true}
-          [:h1 "About the Gazette"]
-          [:p "[to include more info as to the mission / purpose / goal of the JRG]"]]))
 
 (defn contribute-page []
   (fn [] [sa/Container {:text-align "center" :text true}
