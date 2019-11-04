@@ -8,7 +8,8 @@
    [soda-ash.core :as sa]
    [goog.string :as g]
    [tjrg.home.core :refer [homepage]]
-   [tjrg.about :refer [about-page]]))
+   [tjrg.about :refer [about-page]]
+   [tjrg.contribute :refer [contribute-page]]))
 ;; -------------------------
 ;; Routes
 
@@ -24,12 +25,6 @@
   (if params
     (:path (reitit/match-by-name router route params))
     (:path (reitit/match-by-name router route))))
-
-(defn contribute-page []
-  (fn [] [sa/Container {:text-align "center" :text true}
-          [:h1 "Contribute to the Gazette"]
-          [:p "[to include various ways folks can contribute (including donate button) and instructions to contact via email]"]
-          [:p "[Could eventually have various contribution forms]"]]))
 
 (defn advertise-page []
   (fn [] [sa/Container {:text-align "center" :text true}
