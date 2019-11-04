@@ -5,29 +5,15 @@
    [goog.string :as g]
    [tjrg.core :refer [path-for]]
    [tjrg.home.hero :refer [hero]]
-   [tjrg.home.contribute :refer [contribute]]))
+   [tjrg.home.contribute :refer [contribute]]
+   [tjrg.home.advertise1 :refer [advertise]]))
 
 (defn homepage []
   (fn []
     [sa/Container
      [hero]
      [contribute]
-     ;; ADVERTISE ==============================
-     [sa/Container {:text-align "center" :text true}
-      [:br]
-      [sa/Header {:size "large"} "Advertise with Us"]
-      [:p "Odio duis pharetra hendrerit ullamcorper. Consequat urna per odio cum etiam luctus nisl etiam? Dapibus fusce tempus eget fusce consectetur rutrum gravida sapien posuere. "]
-      [sa/Container
-       [sa/Button {:type "button"
-                   :size "medium"
-                   :basic true
-                   :href (path-for :advertise)}
-                  "Learn more"]
-       [sa/Button {:type "button"
-                   :primary true
-                   :href (path-for :advertise)}
-                  "Contact us"]]]
-
+     [advertise]
      ;; Donate ==============================
      [sa/Container {:text-align "center" :text true}
       [:br]
