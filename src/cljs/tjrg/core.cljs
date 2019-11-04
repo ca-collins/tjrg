@@ -98,8 +98,9 @@
 (defn current-page []
   (fn []
     (let [page (:current-page (session/get :route))]
+      (js/console.log "page: " page)
       [nav-menu
-       [page {:id "content"}]])))
+       [page]])))
 ;; -------------------------
 ;; Initialize app
 

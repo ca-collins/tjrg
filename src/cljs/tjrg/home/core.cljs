@@ -5,11 +5,11 @@
    [goog.string :as g]))
    ;[tjrg.core :refer [path-for]]))
 
-(defn homepage [{:keys [id]}]
-  (fn [{:keys [id]}]
+(defn homepage []
+  (fn []
     [sa/Container
      ;; HERO ==============================
-     [sa/Container {:id id :text-align "center" :text true}
+     [sa/Container {:text-align "center" :text true}
       [sa/Header {:size "huge"} "The James River Gazette"]
       [:p (str "A community-driven newspaper dedicated to connecting the people of the "
                "Middle" (g/unescapeEntities "&nbsp;")
@@ -40,7 +40,7 @@
 
 
      ;; GET INVOLVED ==============================
-     [sa/Container {:id id :text-align "center" :text true}
+     [sa/Container {:text-align "center" :text true}
       [:br]
       [sa/Header {:size "large"} "Get Involved"]
       [:p "Write an article, submit a joke or comic, give us feedback"]
@@ -53,7 +53,7 @@
 
 
      ;; ADVERTISE ==============================
-     [sa/Container {:id id :text-align "center" :text true}
+     [sa/Container {:text-align "center" :text true}
       [:br]
       [sa/Header {:size "large"} "Advertise with Us"]
       [:p "Odio duis pharetra hendrerit ullamcorper. Consequat urna per odio cum etiam luctus nisl etiam? Dapibus fusce tempus eget fusce consectetur rutrum gravida sapien posuere. "]
@@ -69,7 +69,7 @@
                   "Contact us"]]]
 
      ;; Donate ==============================
-     [sa/Container {:id id :text-align "center" :text true}
+     [sa/Container {:text-align "center" :text true}
       [:br]
       [sa/Header {:size "large"} "Support the JRG"]
       [:p "Please consider supporting the JRG with a small donation.
