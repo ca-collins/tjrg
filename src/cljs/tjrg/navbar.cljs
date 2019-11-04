@@ -1,8 +1,9 @@
 (ns tjrg.navbar
   (:require
    [reagent.core :as r]
-   [soda-ash.core :as sa]))
-
+   [soda-ash.core :as sa]
+   [tjrg.core :refer [path-for]]))
+   ;
 (defn nav-menu [children]
   (let [active-item (r/atom nil)
         visible (r/atom false)
@@ -25,28 +26,28 @@
                    :on-hide handle-menu-hide}
        [sa/MenuItem {:as "a"
                      :name "home"
-                     ; :href (path-for :index)
+                     :href (path-for :index)
                      :active (= @active-item "home")
                      :on-click handle-link-click}]
        [sa/MenuItem {:as "a"
                      :name "about"
-                     ; :href (path-for :about)
+                     :href (path-for :about)
                      :active (= @active-item "about")
                      :on-click handle-link-click}]
        [sa/MenuItem {:as "a"
                      :name "contribute"
-                     ; :href (path-for :contribute)
+                     :href (path-for :contribute)
                      :active (= @active-item "contribute")
                      :on-click handle-link-click}]
        [sa/MenuItem {:as "a"
                      :name "advertise"
-                     ; :href (path-for :advertise)
+                     :href (path-for :advertise)
                      :active (= @active-item "advertise")
                      :on-click handle-link-click}]]
       [sa/SidebarPusher {:dimmed @visible}
        [sa/Menu
         [sa/MenuItem {:header true
-                      ; :href (path-for :index)
+                      :href (path-for :index)
                       :on-click handle-link-click}
           "The James River Gazette"]
         [sa/MenuItem {:icon "bars"

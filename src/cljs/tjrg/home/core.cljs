@@ -2,8 +2,8 @@
   (:require
    [reagent.core :as r]
    [soda-ash.core :as sa]
-   [goog.string :as g]))
-   ;[tjrg.core :refer [path-for]]))
+   [goog.string :as g]
+   [tjrg.core :refer [path-for]]))
 
 (defn homepage []
   (fn []
@@ -21,8 +21,8 @@
        [sa/Button {:type "button"
                    :size "medium"
                    :basic true
-                   :color "large"}
-                   ;:href (path-for :about)}
+                   :color "large"
+                   :href (path-for :about)}
                   "Learn more"]
        [sa/Button {:type "button"
                    :size "large"
@@ -47,8 +47,8 @@
       [sa/Container
        [sa/Button {:type "button"
                    :size "medium"
-                   :basic true}
-                   ;:href (path-for :contribute)}
+                   :basic true
+                   :href (path-for :contribute)}
                   "Learn how"]]]
 
 
@@ -60,12 +60,12 @@
       [sa/Container
        [sa/Button {:type "button"
                    :size "medium"
-                   :basic true}
-                   ;:href (path-for :advertise)}
+                   :basic true
+                   :href (path-for :advertise)}
                   "Learn more"]
        [sa/Button {:type "button"
-                   :primary true}
-                   ;:href (path-for :advertise)}
+                   :primary true
+                   :href (path-for :advertise)}
                   "Contact us"]]]
 
      ;; Donate ==============================
