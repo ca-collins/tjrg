@@ -1,5 +1,6 @@
 (ns tjrg.core
   (:require
+   [cljss.core :as css]
    [reagent.core :as r]
    [reagent.session :as session]
    [reitit.frontend :as reitit]
@@ -45,6 +46,7 @@
 ;; Initialize app
 
 (defn mount-root []
+  (css/remove-styles!)
   (r/render [current-page] (.getElementById js/document "app")))
 
 (defn init! []
