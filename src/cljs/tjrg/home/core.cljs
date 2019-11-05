@@ -6,11 +6,15 @@
    [tjrg.home.hero :refer [hero]]
    [tjrg.home.contribute :refer [contribute]]
    [tjrg.home.advertise1 :refer [advertise]]
-   [tjrg.home.donate :refer [donate]]))
+   [tjrg.home.donate :refer [donate]]
+   [cljss.core :refer-macros [defstyles]]))
+
+(defstyles app-margin []
+  {:margin "0 20px 50px 20px"})
 
 (defn homepage []
   (fn []
-    [sa/Container
+    [:div {:class (app-margin)}
      [hero]
      [contribute]
      [advertise]
