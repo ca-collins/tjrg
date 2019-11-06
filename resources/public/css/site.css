@@ -1,32 +1,23 @@
+html {
+  font-size: 16px;
+}
+@media (max-width: 900px) {
+  html { font-size: 15px; }
+}
+@media (max-width: 400px) {
+  html { font-size: 13px; }
+}
+
 #app {
   height: 100vh;
   height: calc(var(--vh, 1vh) * 100);
 }
+
 .body-container {
   font-family: 'Helvetica Neue', Verdana, Helvetica, Arial, sans-serif;
-  /* max-width: 640px; */
   margin: 0 auto;
   -webkit-font-smoothing: antialiased;
   font-size: 1.125em;
-  /* color: #333; */
   line-height: 1.5em;
   background-color: #D4D4D4;
-}
-
-#loading-header {
-  font-size: 2.5em;
-  margin-top: 40px;
-  text-align: center;
-}
-
-#navbar a {
-  color: black;
-}
-
-a {
-  text-decoration: none;
-}
-
-a:hover {
-  text-decoration: underline;
 }
