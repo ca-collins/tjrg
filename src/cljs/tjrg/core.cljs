@@ -6,13 +6,11 @@
    [reitit.frontend :as reitit]
    [clerk.core :as clerk]
    [accountant.core :as accountant]
-   [soda-ash.core :as sa]
    [goog.string :as g]
    [tjrg.home.core :refer [homepage]]
    [tjrg.about :refer [about-page]]
    [tjrg.contribute :refer [contribute-page]]
-   [tjrg.advertise1 :refer [advertise-page]]
-   [tjrg.navbar :refer [nav-menu]]))
+   [tjrg.advertise1 :refer [advertise-page]]))
 ;; -------------------------
 ;; Routes
 
@@ -39,9 +37,7 @@
 (defn current-page []
   (fn []
     (let [page (:current-page (session/get :route))]
-      (js/console.log "page: " page)
-      [nav-menu
-       [page]])))
+      [page])))
 ;; -------------------------
 ;; Initialize app
 
