@@ -104,6 +104,7 @@
                    :env {:dev true}}
 
              :uberjar {:hooks [minify-assets.plugin/hooks]
+                       :compiler {:closure-defines {"goog.DEBUG" false}}
                        :source-paths ["env/prod/clj"]
                        :prep-tasks ["compile" ["cljsbuild" "once" "min"]]
                        :env {:production true}
