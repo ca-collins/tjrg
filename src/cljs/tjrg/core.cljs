@@ -10,7 +10,8 @@
    [tjrg.home.core :refer [homepage]]
    [tjrg.about :refer [about-page]]
    [tjrg.contribute :refer [contribute-page]]
-   [tjrg.advertise1 :refer [advertise-page]]))
+   [tjrg.advertise1 :refer [advertise-page]]
+   [tjrg.components.header :refer [header]]))
 ;; -------------------------
 ;; Routes
 
@@ -37,7 +38,9 @@
 (defn current-page []
   (fn []
     (let [page (:current-page (session/get :route))]
-      [page])))
+      [:<>
+       [header]
+       [page]])))
 ;; -------------------------
 ;; Initialize app
 
