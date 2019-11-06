@@ -1,7 +1,6 @@
 (ns tjrg.home.core
   (:require
    [reagent.core :as r]
-   [soda-ash.core :as sa]
    [goog.string :as g]
    [tjrg.home.hero :refer [hero]]
    [tjrg.home.contribute :refer [contribute]]

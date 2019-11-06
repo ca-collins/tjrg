@@ -1,17 +1,13 @@
 (ns tjrg.home.contribute
   (:require
-   [reagent.core :as r]
-   [soda-ash.core :as sa]))
+   [reagent.core :as r]))
 
 (defn contribute []
  (fn []
-   [sa/Container {:text-align "center" :text true}
+   [:div
     [:br]
-    [sa/Header {:size "large"} "Get Involved"]
+    [:h1 "Get Involved"]
     [:p "Write an article, submit a joke or comic, give us feedback"]
-    [sa/Container
-     [sa/Button {:type "button"
-                 :size "medium"
-                 :basic true
-                 :href "/contribute"}
-                "Learn how/"]]]))
+    [:div
+     [:a {:href "/contribute"}
+         "Learn how"]]]))

@@ -1,10 +1,9 @@
 (ns tjrg.about
   (:require
-   [reagent.core :as r]
-   [soda-ash.core :as sa]))
+   [reagent.core :as r]))
 
 (defn about-page []
  (fn []
-   [sa/Container {:text-align "center" :text true}
+   [:div
     [:h1 "About the Gazette"]
     [:p "[to include more info as to the mission / purpose / goal of the JRG]"]]))
