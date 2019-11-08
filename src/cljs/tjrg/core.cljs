@@ -6,7 +6,6 @@
    [reitit.frontend :as reitit]
    [clerk.core :as clerk]
    [accountant.core :as accountant]
-   [goog.string :as g]
    [tjrg.home.core :refer [homepage]]
    [tjrg.about :refer [about-page]]
    [tjrg.contribute :refer [contribute-page]]
