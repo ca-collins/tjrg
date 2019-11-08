@@ -6,42 +6,7 @@
    [reitit.frontend :as reitit]
    [clerk.core :as clerk]
    [accountant.core :as accountant]
-   [tjrg.home.core :refer [homepage]]
-   [tjrg.about :refer [about-page]]
-   [tjrg.contribute :refer [contribute-page]]
-   [tjrg.advertise1 :refer [advertise-page]]
-   [tjrg.components.header :refer [header]]))
-;; -------------------------
-;; Routes
-
-(def router
-  (reitit/router
-   [["/" :index]
-    ["/about" :about]
-    ["/contribute" :contribute]
-    ["/advertise" :advertise]]))
-
-
-(defn path-for [route & [params]]
-  (if params
-    (:path (reitit/match-by-name router route params))
-    (:path (reitit/match-by-name router route))))
-
-(defn page-for [route]
-  (case route
-    :index #'homepage
-    :about #'about-page
-    :contribute #'contribute-page
-    :advertise #'advertise-page))
-
-(defn current-page []
-  (fn []
-    (let [page (:current-page (session/get :route))]
-      [:<>
-       [header]
-       [page]])))
-;; -------------------------
-;; Initialize app
+   [tjrg.routes :refer [current-page router page-for]]))
 
 (defn mount-root []
   (css/remove-styles!)
