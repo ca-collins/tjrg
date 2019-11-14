@@ -42,6 +42,7 @@ html {
 h1, h2, h3, h4, h5, h6 {
   font-family: 'franklin';
   font-weight: normal;
+  line-height: 1.25em;
 }
 
 ul {
@@ -49,8 +50,8 @@ ul {
 }
 
 #app {
-  height: 100vh;
-  height: calc(var(--vh, 1vh) * 100);
+  /* height: 100vh;
+  height: calc(var(--vh, 1vh) * 100); */
 }
 
 .body-container {
@@ -60,5 +61,10 @@ ul {
   -webkit-font-smoothing: antialiased;
   font-size: 1.125em;
   line-height: 1.5em;
-  background: linear-gradient(to left, #ebd5b3, #CDC5B4);
+  background: #ebd5b3;
+}
+
+a {
+ text-decoration: none;
+ color: #FFFFFF
 }

@@ -8,13 +8,20 @@
    [tjrg.home.donate :refer [donate]]
    [cljss.core :refer-macros [defstyles]]))
 
-(defstyles app-margin []
-  {:margin "0 20px 50px 20px"})
+(defstyles section []
+  {:padding "0 20px 50px 20px"
+   :box-box-shadow "1px solid rgba(0, 0, 0, 0.2)"})
+(defstyles dark-section []
+  {:background-color "#CBB18E"})
 
 (defn homepage []
   (fn []
-    [:div {:class (app-margin)}
-     [hero]
-     [contribute]
-     [advertise]
-     [donate]]))
+   [:<>
+    [:div {:class (section)}
+     [hero]]
+    [:div {:class [(section) (dark-section)]}
+     [contribute]]
+    [:div {:class (section)}
+     [advertise]]
+    [:div {:class [(section) (dark-section)]}
+     [donate]]]))

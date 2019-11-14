@@ -4,12 +4,13 @@
    [tjrg.components.svg :refer [menu-icon close-icon]]
    [cljss.core :refer-macros [defstyles]]
    [cljss.core :as css]
-   [goog.string :as g]))
+   [goog.string :as g]
+   [tjrg.components.svg :refer [outside-link]]))
 
 
 (defstyles navbar []
   {:font-size "18px"
-   :background "linear-gradient(to left, #ebd5b3, #CDC5B4)"
+   :background "linear-gradient(to bottom, #ebd5b3, #CBB18E)"
    :border "1px solid rgba(0, 0, 0, 0.2)"
    :-webkit-box-shadow "0px 2px 5px 0px rgba(0,0,0,0.75)"
    :-moz-box-shadow "0px 2px 5px 0px rgba(0,0,0,0.75)"
@@ -38,14 +39,15 @@
                 {:margin "0"}}})
 (defstyles links [{:keys [is-active]}]
   {:text-decoration "none"
-   :border-bottom (if is-active "1px solid black" "none")
-   :color "rgba(0, 0, 0, 0.7)"
-   :&:hover {:color "#73859d"}})
+   :border-bottom (if is-active "1px solid #FFFFFF" "none")
+   :color (if is-active "#FFFFFF" "rgba(0, 0, 0, 0.7)")
+   :&:hover {:color "#FFFFFF"}})
 (defstyles nav-links []
   {::css/media {[:screen :and [:min-width "768px"]]
                 {:margin-left "40px"}}})
 (defstyles logo []
   {:display "inline-block"
+   :color "rgba(0, 0, 0, 0.7)"
    :font-size "22px"
    :font-family "franklin"
    :margin-top "10px"
@@ -59,6 +61,7 @@
    :cursor "pointer"
    :fill "rgba(0, 0, 0, 0.6)"
    :font-size "24px"
+   :&:hover {:fill "#FFFFFF"}
    ::css/media {[:screen :and [:min-width "768px"]]
                 {:display "none"}}})
 
@@ -81,7 +84,7 @@
                :on-click handle-open}
         [menu-icon]])
      [:a {:href "/"
-          :class [(logo) (links false)]
+          :class [(logo)]
           :name "home"
           :on-click handle-link}
          (str "The James River" (g/unescapeEntities "&nbsp;") "Gazette")]
@@ -115,7 +118,8 @@
             :on-click handle-link}
            "Advertise"]]
       [:li {:class (nav-items)}
-       [:a {:href "#"
+       [:a {:href "https://www.paypal.me/jrgazette"
+            :target "_blank"
             :class [(nav-links) (links {:is-active false})]
             :on-click handle-close}
-           "Donate"]]]])))
+           "Donate (via PayPal)"]]]])))
